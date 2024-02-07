@@ -1,1 +1,1140 @@
-Hello World
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Album Collection</title>
+    </head>
+
+    <style>
+
+        .page {
+            padding: 5px 5px;
+            background:  white;
+        }
+
+        .header {
+            padding: 5px 5px;
+            background: rgb(190,190,190);
+            background: linear-gradient(90deg, rgb(190, 190, 190) 0%, rgba(250,250,250,1) 86%, rgba(253,253,253,1) 93%, rgba(255,255,255,1) 100%);
+
+        }
+
+        .btn {
+            height: 28px;
+            width: 28px;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            color: rgb(60, 66, 87);
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 4px 8px;
+            display: inline-block;
+            min-height: 28px;
+            transition: background-color .24s,box-shadow .24s;
+            :hover {
+                box-shadow: rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(0 0 0 / 12%) 0px 1px 1px 0px, rgb(60 66 87 / 16%) 0px 0px 0px 1px, rgb(0 0 0 / 0%) 0px 0px 0px 0px, rgb(60 66 87 / 8%) 0px 3px 9px 0px, rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+            }    
+        }
+
+        .list-alphabet {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            background: rgb(190,190,190);
+            background: linear-gradient(90deg, rgb(190, 190, 190) 0%, rgba(250,250,250,1) 86%, rgba(253,253,253,1) 93%, rgba(255,255,255,1) 100%);
+        }
+
+        .list-bands {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            background: rgb(190,190,190);
+        }
+
+        .band {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            padding: 0 5px;
+            background-color: #EDE9F0;
+            border: 1px solid rgb(173, 173, 173);
+            border-radius: 5px;
+        }
+
+        .list-albums {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .album {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 0 15px;   
+        }
+
+        .wish {     
+            position: absolute;
+            background: #FF0000;
+            left: 25px;
+            top: 0px;
+            font-weight: bold;
+            font-size: x-small;
+            padding: 0 5px ;
+            &:before{
+                content: "WISH";
+            }
+        }
+
+        .cover{
+            border: 1px solid #dbdbdb;
+            border-left: 8px solid #000000;
+            border-radius: 1px;
+            position: relative;
+            padding: 1px;
+            padding-left: 0;
+            height: 80px;
+            width: 80px        
+        }
+
+        .miss{
+            -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+            filter: grayscale(100%);
+        }
+
+        .alphabet {
+            margin-left: 10px;
+            font-size: medium;
+            border-bottom: 1px solid red;
+        }
+
+        .active {
+            border-bottom: 1px solid black;
+        }
+
+        .band-title {
+            font-size: small;
+            width: fit-content;
+            block-size: fit-content;
+        }
+
+        .album-title {
+            font-size: x-small;
+            width: 100px;
+            text-align: center;
+        }
+
+        .hide { display: none }
+
+
+    </style>
+
+    <body>
+        <div class="page">
+            <div class="header">
+                <button id="showAll" class="btn">show!</button>
+            </div>
+
+            <div class="list-alphabet">
+                <div>
+                    <h1 class="alphabet">0-9</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">10000 Maniacs</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\0-9\10000 Maniacs\10000manics-mtv-unplugged.jpg">
+                                    <h1 class="album-title">MTV Unplugged</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">4 Non Blondes</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\0-9\4 Non Blondes\bigger,better,faster,more.jpg">
+                                    <h1 class="album-title">Bigger, Better, Faster, More!</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">A</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">AC/DC</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\A\ACDC\backinblack.jpg">
+                                    <h1 class="album-title">Back In Black</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\A\ACDC\flyonthewall.jpg">
+                                    <h1 class="album-title">Fly On The Wall</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover miss" src="images\A\ACDC\highwatohell.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">Highway to Hell</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">B</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">The Beatles</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\B\The Beatles\sgtpeppers.jpg">
+                                    <h1 class="album-title">Sgt. Pepper's Lonely Hearts Club Band</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\B\The Beatles\revolver.jpg">
+                                    <h1 class="album-title">Revolver</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Belchior</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover miss" src="images\B\Belchior\alucinacao.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">Alucinação</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Belle And Sebastian</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\B\Belle And Sebastian\tigermilk.jpg">
+                                    <h1 class="album-title">Tigermilk</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Black Foxxes</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover miss" src="images\B\Black Foxxes\reiði.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">Reiði</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Bombay Bicycle Club</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\B\Bombay Bicycle Club\flaws.jpg">
+                                    <h1 class="album-title">Flaws</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">C</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <div class="band">
+                                <h1 class="band-title">Caetano Veloso</h1>
+                                <div class="list-albums">
+                                    <div class="album">
+                                        <img class="cover" src="images\C\Caetano Veloso\corenomes.png">
+                                        <h1 class="album-title">Cores, Nomes</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="band">
+                                <h1 class="band-title">Cassia Eller</h1>
+                                <div class="list-albums">
+                                    <div class="album">
+                                        <img class="cover" src="images\C\Cassia Eller\acustico.jpg">
+                                        <h1 class="album-title">Acústico</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="band">
+                                <h1 class="band-title">Chico Buarque</h1>
+                                <div class="list-albums">
+                                    <div class="album">
+                                        <img class="cover" src="images\C\Chico Buarque\construcao.png">
+                                        <h1 class="album-title">Construção</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="band">
+                                <h1 class="band-title">Coldplay</h1>
+                                <div class="list-albums">
+                                    <div class="album">
+                                        <img class="cover" src="images\C\Coldplay\arushofblood.jpg">
+                                        <h1 class="album-title">A Rush Of Blood To The Head</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="band">
+                                <h1 class="band-title">Counting Crows</h1>
+                                <div class="list-albums">
+                                    <div class="album">
+                                        <img class="cover" src="images\C\Counting Crows\augustandeverthingafter.jpg">
+                                        <h1 class="album-title">August And Everthing After</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="band">
+                                <h1 class="band-title">The Cranberries</h1>
+                                <div class="list-albums">
+                                    <div class="album">
+                                        <img class="cover" src="images\C\The Cranberries\everybodyelseisdoing.png">
+                                        <h1 class="album-title">Everybody Else Is Doing It, So Why Can't We?</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="band">
+                                <h1 class="band-title">Crash Test Dummies</h1>
+                                <div class="list-albums">
+                                    <div class="album">
+                                        <img class="cover" src="images\C\Crash Test Dummies\godshuffledhisfeet.jpg">
+                                        <h1 class="album-title">God Shuffled His Feet</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">D</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">The Darkness</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\D\The Darkness\permissiontoland.jpg">
+                                    <h1 class="album-title">Permission to Land</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\D\The Darkness\onewaytickettohellandback.jpg">
+                                    <h1 class="album-title">One Way Ticket to Hell ...And Back</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">David Bowie</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover miss" src="images\D\David Bowie\risefallziggystardust.jpeg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">The Rise and Fall of Ziggy Stardust and the Spiders from Mars</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Dire Straits</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\D\Dire Straits\brothersinarms.jpg">
+                                    <h1 class="album-title">Brothers In Arms</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">E</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Elefant</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\E\Elefant\sunlightmakesmefeelparanoid.jpg">
+                                    <h1 class="album-title">Sunlight Makes Me Paranoid</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Empire of The Sun</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover miss" src="images\E\Empire Of The Sun\walkingonadream.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">Walking On A Dream</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">F</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Foo Fighters</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\F\Foo Fighters\foofighters.jpg">
+                                    <h1 class="album-title">Foo Fighters</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover miss" src="images\F\Foo Fighters\colourandtheshape.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">The Colour And The Shape</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\F\Foo Fighters\thereisnothinglefttolose.jpg">
+                                    <h1 class="album-title">There is Nothing Left to Lose</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover miss" src="images\F\Foo Fighters\onebyone.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">One By One</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover miss" src="images\F\Foo Fighters\inyourhonor.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">In Your Honor</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover miss" src="images\F\Foo Fighters\wastinglight.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">Wasting Light</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Freelance Whales</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\F\Freelance Whales\weathervanes.jpg">
+                                    <h1 class="album-title">Weathervanes</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">G</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Gorillaz</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\G\Gorillaz\gsides.jpg">
+                                    <h1 class="album-title">G Sides</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Guns n' Roses</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\G\Guns n' Roses\appetitefordestruction.jpeg">
+                                    <h1 class="album-title">Apetite For Destruction</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\G\Guns n' Roses\lies.jpeg">
+                                    <h1 class="album-title">Lies</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\G\Guns n' Roses\uyi1.jpeg">
+                                    <h1 class="album-title">Use Your Illusion I</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\G\Guns n' Roses\uyi2.jpeg">
+                                    <h1 class="album-title">Use Your Illusion II</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\G\Guns n' Roses\liveera.jpg">
+                                    <h1 class="album-title">Live Era '87-'93</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\G\Guns n' Roses\decemberbbullets.jpg">
+                                    <h1 class="album-title">December Bullets</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">H</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Half Moon Run</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover miss" src="images\H\Half Moon Run\darkeyes.jpeg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">Dark Eyes</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">The Hives</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\H\The Hives\venividivicious.jpg">
+                                    <h1 class="album-title">Veni Vidi Vicious</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">I</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Interpol</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\I\Interpol\turnonthebrightlights.jpg">
+                                    <h1 class="album-title">Turn On The Bright Lights</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\I\Interpol\antics.jpg">
+                                    <h1 class="album-title">Antics</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">J</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">James</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\J\James\laid.jpg">
+                                    <h1 class="album-title">Laid</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">JJ72</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\J\JJ72\jj72.jpg">
+                                    <h1 class="album-title">JJ72</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\J\JJ72\itosky.jpg">
+                                    <h1 class="album-title">I To Sky</h1>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">K</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Keane</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\K\Keane\hopesandfears.jpg">
+                                    <h1 class="album-title">Hopes And Fears</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Kings of Leon</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\K\Kings of Leon\youthyoungmanhood.jpg">
+                                    <h1 class="album-title">Youth & Young Manhood</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\K\Kings of Leon\ahashakeheartbreak.jpg">
+                                    <h1 class="album-title">Aha Shake Heartbreak</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">L</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Legião Urbana</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\L\Legião Urbana\legiaourbana.jpeg">
+                                    <h1 class="album-title">Legião Urbana</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\L\Legião Urbana\dois.jpeg">
+                                    <h1 class="album-title">Dois</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\L\Legião Urbana\quepaiseesse.jpg">
+                                    <h1 class="album-title">Que Pais É Esse</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\L\Legião Urbana\asquatroestacoes.jpg">
+                                    <h1 class="album-title">As Quatro Estações</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\L\Legião Urbana\v.jpg">
+                                    <h1 class="album-title">V</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\L\Legião Urbana\musicapacampamentos.jpg">
+                                    <h1 class="album-title">Música P/ Acampamentos</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\L\Legião Urbana\descobrimentodobrasil.jpg">
+                                    <h1 class="album-title">O Descobrimento do Brasil</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\L\Legião Urbana\atempestade.jpg">
+                                    <h1 class="album-title">A Tempestade</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\L\Legião Urbana\umaoutraestacao.jpg">
+                                    <h1 class="album-title">Uma Outra Estação</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">The Libertines</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\L\The Libertines\thelibertines.jpg">
+                                    <h1 class="album-title">The Libertines</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\L\The Libertines\upthebracket.jpg">
+                                    <h1 class="album-title">Up The Bracket</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Los Hermanos</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\L\Los Hermanos\blocodoeusozinho.jpg">
+                                    <h1 class="album-title">Bloco do Eu Sozinho</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">M</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Mamonas Assassinas</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\M\Mamonas Assassinas\mamonasassassinas.jpg">
+                                    <h1 class="album-title">Mamonas Assassinas</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Matchbox20</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\M\Matchbox20\yourselforsomeonelikeyou.JPG">
+                                    <h1 class="album-title">Yourself or Someone Like You</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">MGMT</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\M\MGMT\oracularspectacular.jpeg">
+                                    <h1 class="album-title">Oracular Spectacular</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Michael Jackson</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\M\Michael Jackson\thriller.jpeg">
+                                    <h1 class="album-title">Thriller</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Midnight Oil</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\M\Midnight Oil\20000wattrsl.jpg">
+                                    <h1 class="album-title">20.000 Watt R.S.L</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Milton Nascimento e Lô Borges</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\M\Milton Nascimento e Lô Borges\clubedaesquina.jpg">
+                                    <h1 class="album-title">Clube da Esquina</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Moby</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\M\Moby\play.jpg">
+                                    <h1 class="album-title">Play</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\M\Moby\18.jpg">
+                                    <h1 class="album-title">18</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">N</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Nirvana</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\N\Nirvana\nevermind.jpg">
+                                    <h1 class="album-title">Nevermind</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">O</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Oasis</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\O\Oasis\morningglory.jpg">
+                                    <h1 class="album-title">(What's The Story) Morning Glory?</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\O\Oasis\beherenow.jpg">
+                                    <h1 class="album-title">Be Here Now</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">P</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Pato Fu</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pato Fu\goldequem.jpg">
+                                    <h1 class="album-title">Gol de Quem</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pato Fu\temmasacabou.jpg">
+                                    <h1 class="album-title">Tem Mas Acabou</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pato Fu\televisaodecachorro.jpg">
+                                    <h1 class="album-title">Televisão de Cachorro</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pato Fu\isopor.jpg">
+                                    <h1 class="album-title">Isopor</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pato Fu\todacuraparatodomal.jpeg">
+                                    <h1 class="album-title">Toda Cura Para Todo Mal</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pato Fu\naopareprapensar.jpg">
+                                    <h1 class="album-title">Não Pare Pra Pensar</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Pink Floyd</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pink Floyd\wishyouwerehere.jpg">
+                                    <h1 class="album-title">Wish You Were Here</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pink Floyd\darksideofthemoon.jpg">
+                                    <h1 class="album-title">Dark Side Of The Moon</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pink Floyd\thewall.jpg">
+                                    <h1 class="album-title">The Wall</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\P\Pink Floyd\thedivisionbell.jpg">
+                                    <h1 class="album-title">The Division Bell</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">R</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Radiohead</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\R\Radiohead\hailtothethief.jpg">
+                                    <h1 class="album-title">Hail to The Thief</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Rage Against The Machine</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\R\Rage Against The Machine\rageagainstthemachine.jpg">
+                                    <h1 class="album-title">Rage Against The Machine</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Renato Russo</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\R\Renato Russo\presente.jpg">
+                                    <h1 class="album-title">Presente</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\R\Renato Russo\thestonewall.jpg">
+                                    <h1 class="album-title">The Stone Wall Celebration Concert</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\R\Renato Russo\equilíbriodistante.jpg">
+                                    <h1 class="album-title">Equilibrio Distante</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\R\Renato Russo\oultimosolo.jpg">
+                                    <h1 class="album-title">O Último Solo</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">R.E.M</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\R\R.E.M\automaticforthepeople.jpg">
+                                    <h1 class="album-title">Automatic For The People</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">The Rolling Stones</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\R\Rolling Stones\stickyfingers.jpg">
+                                    <h1 class="album-title">Sticky Fingers</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">S</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Secos e Molhados</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\S\Secos e Molhados\secosemolhados.jpg">
+                                    <h1 class="album-title">Secos e Molhados</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Sheryl Crow</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\S\Sheryl Crow\sherylcrow.jpg">
+                                    <h1 class="album-title">Sheryl Crow</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Sigur Rós</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\S\Sigur Rós\takk.jpg">
+                                    <h1 class="album-title">Takk...</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Simply Red</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\S\Simply Red\stars.jpg">
+                                    <h1 class="album-title">Stars</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Skank</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\S\Skank\calango.jpg">
+                                    <h1 class="album-title">Calango</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\S\Skank\siderado.jpg">
+                                    <h1 class="album-title">Siderado</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\S\Skank\cosmotron.jpg">
+                                    <h1 class="album-title">Cosmotron</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">The Smashing Pumpkins</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\S\Smashing Pumpkins\mellocollie.jpg">
+                                    <h1 class="album-title">Mellon Collie and the Infinite Sadness</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">The Strokes</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\S\The Strokes\themodernageep.jpg">
+                                    <h1 class="album-title">The Modern Age</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover" src="images\S\The Strokes\isthisit.jpg">
+                                    <h1 class="album-title">Is This It</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Sufjan Stevens</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\S\Sufjan Stevens\Illinois.jpg">
+                                    <h1 class="album-title">Illinois</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Supertramp</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover miss" src="images\S\Supertramp\breakfastinamerica.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">Breakfast In América</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">T</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Toad The Wet Sprocket</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\T\Toad The Wet Sprocket\fear.jpg">
+                                    <h1 class="album-title">fear</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Travis</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\T\Travis\themanwho.png">
+                                    <h1 class="album-title">The Man Who</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Two Doors Cinema Club</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover miss" src="images\T\Two Doors Cinema Club\touristhistory.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">Tourist History</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">U</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">U2</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\U\U2\war.jpg">
+                                    <h1 class="album-title">War</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">V</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">The Velvet Underground</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\V\The Velvet Underground\thevelvetundergroundnico.jpg">
+                                    <h1 class="album-title">The Velvet Underground & Nico</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">The Verve</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\V\The Verve\urbanhymns.jpg">
+                                    <h1 class="album-title">Urban Hymns</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">Velvet Revolver</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\V\Velvet Revolver\contraband.jpeg">
+                                    <h1 class="album-title">Contraband</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">W</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">The Wallflowers</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\W\The Wallflowers\bringingdownthehorse.jpg">
+                                    <h1 class="album-title">Bringing Down The Horse</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">The War On Drugs</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover miss" src="images\W\The War On Drugs\lostinadream.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">Lost In A Dream</h1>
+                                </div>
+                                <div class="album">
+                                    <img class="cover miss" src="images\W\The War On Drugs\deeperunderstanding.jpg">
+                                    <div class="wish"></div>
+                                    <h1 class="album-title">A Deeper Understanding</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="band">
+                            <h1 class="band-title">The Wildbirds</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\W\The Wildbirds\thewildbirds.jpg">
+                                    <h1 class="album-title">The Wildbirds</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div>
+                    <h1 class="alphabet">Z</h1>
+                    <div class="list-bands">
+                        <div class="band">
+                            <h1 class="band-title">Zwan</h1>
+                            <div class="list-albums">
+                                <div class="album">
+                                    <img class="cover" src="images\Z\Zwan\marystarofthesea.jpg">
+                                    <h1 class="album-title">Mary Star of The Sea</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    
+        <script>
+            const col = document.querySelectorAll(".alphabet");
+
+            for (let c of col) {
+                c.addEventListener("click", collapse);
+            }
+
+            function collapse(e) {
+                this.classList.toggle("active");
+                const content = this.nextElementSibling;
+                content.classList.toggle('hide');
+            }
+
+            var button = document.getElementById("showAll")
+            button.innerText = '-';
+            button.onclick = function(){
+                hideOrShow()
+                button.innerText = (button.innerText == '+') ? '-' : '+';
+            }
+
+            function hideOrShow(){
+                Object.values(col).forEach( (el) =>{
+                    el.classList.toggle("active");
+                    const content = el.nextElementSibling;
+                    content.classList.toggle('hide');
+                });
+            }
+            
+        </script>
+    </body>    
+</html>
